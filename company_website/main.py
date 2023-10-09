@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as rs
 import pandas as pd
 
 company_data = {
@@ -10,24 +10,24 @@ company_data = {
 df = pd.DataFrame(company_data)
 
 def main():
-    st.title('Newt Global')
+    rs.title('Newt Global')
 
-    page = st.sidebar.radio('Navigation', ['Home', 'About Us', 'Contact Us'])
+    page = rs.sidebar.radio('Navigation', ['Home', 'About Us', 'Contact Us'])
 
     if page == 'Home':
-        st.header('Home')
-        st.write("Welcome to our website. We provide excellent IT consulting and services to businesses.")
+        rs.header('Home')
+        rs.write("Welcome to our website. We provide excellent IT consulting and services to businesses.")
 
     elif page == 'About Us':
-        st.header('About Us')
+        rs.header('About Us')
         about_text = df['About Us'].values[0]
-        st.write(about_text)
+        rs.write(about_text)
 
     elif page == 'Contact Us':
-        st.header('Contact Us')
+        rs.header('Contact Us')
         contact_info = df[['Contact Email', 'Phone Number']].iloc[0]
-        st.write(f'Email: {contact_info["Contact Email"]}')
-        st.write(f'Phone: {contact_info["Phone Number"]}')
+        rs.write(f'Email: {contact_info["Contact Email"]}')
+        rs.write(f'Phone: {contact_info["Phone Number"]}')
 
 if __name__ == '__main__':
     main()
